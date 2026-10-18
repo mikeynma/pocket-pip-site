@@ -1,4 +1,4 @@
-# Pocket Pip
+# Pocket Pip Games
 
-The public pages for the Pocket Pip game: the home page and the privacy policy.
-They're copied from `site/` in the game's own (private) repo; edit them there.
+The website, https://pocketpipgames.com. Every page is built by `npm run site` in the private pip-games repo,
+from each game's store text, screenshots, help and privacy pages. Don't edit here: rebuild, then commit and push.

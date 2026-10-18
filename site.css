@@ -1,0 +1,237 @@
+/* pocketpipgames.com: every page made by npm run site (scripts/site.py). The look: Pip's orange case, cream and the LCD green,
+   a 70s/80s retro palette (owner chose it over a calmer cream look, 16 October 2026). */
+:root{--icon-edge:0 0 0 2px #fff6e6,0 4px 0 2px #c97a35;--pip-line:#2f3a24;--pip-face:#2f3a24;--logo-games:#fff6e6;--logo-bar:#fff6e6;--bg:#f2a65a;--card:#fff6e6;--ink:#3b2a1a;--soft:#6b5640;--lcd:#b9c9a0;--lcd-ink:#2f3a24;--edge:#c97a35;--tile:color-mix(in srgb,var(--lcd) 35%,var(--card));--bar:var(--bg)}
+@media (prefers-color-scheme:dark){:root{--icon-edge:0 3px 0 #c97a35;--pip-line:#f6ead8;--logo-games:#f2a65a;--logo-bar:#f2a65a;--bg:#2a2016;--card:#3a2c1e;--ink:#f6ead8;--soft:#d6c3a8;--lcd:#56664a;--lcd-ink:#e6efd6;--edge:#1c150e}}
+*{box-sizing:border-box}
+html{scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Fredoka",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+.px{font-family:"Silkscreen",ui-monospace,monospace;letter-spacing:.08em;font-weight:400}
+.small{color:var(--soft);font-size:.85rem}
+
+/* the menu */
+.top{background:var(--bar)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:1.05rem}
+nav{display:flex;flex-wrap:wrap;gap:4px}
+nav a{text-decoration:none;font-weight:600;padding:6px 12px;border-radius:999px}
+nav a:hover,nav a:focus-visible,nav a[aria-current]{background:var(--card)}
+@media (max-width:620px){.top .wrap{justify-content:center}.top nav{justify-content:center}nav a{padding:6px 10px;font-size:.95rem}}
+
+/* page parts */
+.hero{text-align:center;padding:40px 0 36px}
+@media (min-width:760px){.hero{padding:56px 0 48px}}
+.hero .icon{border-radius:26px}
+h1{font-size:clamp(2rem,7vw,3.4rem);margin:.3em 0 .1em;line-height:1.1}
+h2{font-size:1.2rem;margin:0 0 16px}
+.tag{font-size:1.25rem;font-weight:600;margin:0 auto;max-width:30em}
+.sub{color:var(--ink);max-width:36em;margin:.6em auto} /* on the orange page: ink, as --soft is only 3.5:1 there */
+.soon{display:inline-block;margin-top:1em;background:var(--card);border-radius:999px;padding:10px 22px;font-weight:600;box-shadow:0 4px 0 var(--edge)}
+.button{display:inline-block;background:var(--ink);color:var(--card);text-decoration:none;border-radius:999px;padding:10px 22px;font-weight:600}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;list-style:none;padding:0;margin:24px 0 0}
+.facts li{background:var(--lcd);color:var(--lcd-ink);border-radius:10px;padding:6px 12px;font-size:.8rem}
+section{background:var(--card);border-radius:22px;padding:28px 24px;margin:0 0 28px}
+@media (min-width:760px){section{padding:40px 44px;margin-bottom:48px}h2{margin-bottom:24px}}
+@media (max-width:700px){section{padding:22px 16px}}
+.big{font-size:1.4rem;font-weight:600}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:10px 8px;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.promise{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:10px}
+.promise li{padding-left:2.4em;text-indent:-2.4em}
+.promise li::before{content:"\2713";display:inline-block;text-indent:0;width:1.6em;font-weight:600;color:var(--lcd-ink);background:var(--lcd);border-radius:6px;text-align:center;margin-right:.8em}
+
+/* screenshots: tap one to see it bigger */
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 16px;margin:0 0 32px}
+.shots figure{margin:0}
+.shots a{display:block;cursor:zoom-in;border-radius:18px}
+.shots a:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.shots img{width:100%;height:auto;border-radius:18px;display:block}
+.shots figcaption{text-align:center;font-size:.9rem;font-weight:600;margin-top:8px}
+@media (max-width:700px){.shots{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.shots figure{scroll-snap-align:center}}
+
+/* a game's page */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.grid div{background:var(--tile);border-radius:14px;padding:14px 16px}
+.grid h3{margin:0 0 6px;font-size:1.05rem}
+.grid p,.grid ul{margin:0 0 .4em;color:var(--soft);font-size:.95rem}
+.grid ul{padding-left:1.1em}
+.grid li{margin:.25em 0}
+
+/* the games */
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.lead{color:var(--soft);max-width:44em;margin:-.4em 0 1.4em}
+.game{display:flex;gap:14px;align-items:flex-start;text-decoration:none;background:var(--tile);border-radius:16px;padding:14px}
+a.game:hover,a.game:focus-visible{background:var(--lcd);color:var(--lcd-ink)}
+.game img{border-radius:16px;flex:none}
+.game b{display:block;font-size:1.1rem}
+.game span{display:block;font-size:.93rem;opacity:.85}
+.game i{display:inline-block;font-style:normal;font-size:.7rem;margin-top:6px}
+.mystery{border:3px dashed color-mix(in srgb,var(--ink) 30%,transparent);background:none}
+.mystery .q{flex:none;display:grid;place-items:center;width:72px;height:72px;border-radius:16px;background:var(--tile);font-size:2.2rem}
+.small-cards{grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:12px}
+.small-cards a{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;text-align:center;background:var(--tile);border-radius:14px;padding:14px 10px}
+.small-cards a:hover,.small-cards a:focus-visible{background:var(--lcd);color:var(--lcd-ink)}
+.small-cards img{border-radius:12px}
+
+/* the homepage */
+.date{font-size:.75rem;opacity:.7;margin-left:.5em}
+@media (max-width:620px){.date{display:block;margin:.4em 0 0}}
+.featured{display:grid;grid-template-columns:1fr 1.6fr;gap:24px;align-items:center}
+.featured .shots{margin:0}
+.feat-text .icon{border-radius:22px}
+.feat-text h3{font-size:1.6rem;margin:.3em 0 .2em}
+.feat-text p{color:var(--soft)}
+.feat-text .tag{color:var(--ink);font-size:1.1rem;margin:0 0 .5em}
+@media (max-width:760px){.featured{grid-template-columns:none}}
+.pip-says{display:flex;gap:18px;align-items:center;background:var(--lcd);color:var(--lcd-ink)}
+.pip-says img{border-radius:12px;image-rendering:pixelated;flex:none}
+.pip-says b{font-size:.9rem}
+.pip-says p{margin:.2em 0 0;font-size:1.15rem;font-weight:600}
+
+footer{text-align:center;padding:12px 16px 40px}
+footer nav{justify-content:center;margin-bottom:8px}
+footer .small{color:var(--ink)}
+
+/* the bigger screenshot */
+dialog.zoom{border:0;padding:0;background:none;max-width:none;max-height:none;overflow:visible;color:#fff}
+dialog.zoom::backdrop{background:rgb(0 0 0 / .85)}
+dialog.zoom img{display:block;height:min(84vh,1280px);width:auto;max-width:90vw;object-fit:contain;border-radius:22px;touch-action:pan-y}
+dialog.zoom p{text-align:center;margin:10px 0 0;font-weight:600}
+dialog.zoom button{position:fixed;width:48px;height:48px;border-radius:50%;border:0;background:var(--card);color:var(--ink);font-size:1.3rem;font-weight:600;line-height:1;cursor:pointer}
+dialog.zoom .x{top:12px;right:12px}
+dialog.zoom .prev{left:12px;top:calc(50% - 24px)}
+dialog.zoom .next{right:12px;top:calc(50% - 24px)}
+@media (max-width:620px){dialog.zoom .prev,dialog.zoom .next{top:auto;bottom:14px}dialog.zoom img{height:min(76vh,1280px)}}
+.featured[hidden]{display:none}
+
+/* the homepage strip: Pip recorded from the real game (strip.png: --n frames of --w x 40 game pixels, one above the other; the game's
+   own 32-wide screen is the middle, with room each side for the kitten to walk in), played by CSS. --s is a whole number of screen
+   pixels per game pixel, so he stays sharp: bigger steps on bigger screens. Only the far edges fade, where Pip never goes. */
+.strip{--s:4;--screen:#b9c9a0;position:relative;margin:0 0 28px;height:calc(40px*var(--s) + 3.2rem);background:var(--screen);border-radius:22px;overflow:hidden;box-shadow:inset 0 0 0 6px color-mix(in srgb,var(--screen) 70%,#2f3a24)}
+@media (min-width:480px){.strip{--s:5}}
+@media (min-width:760px){.strip{margin-bottom:48px}}
+@media (prefers-color-scheme:dark){.strip{--screen:#9cad87}}
+.strip .ground{position:absolute;left:0;right:0;top:calc(37px*var(--s));height:calc(1px*var(--s));background:#2f3a24}
+.pip-anim{position:absolute;left:calc(50% - var(--w)*var(--s)*.5px);top:0;width:calc(var(--w)*var(--s)*1px);height:calc(40px*var(--s));background:var(--src) 0 0/100% calc(40px*var(--s)*var(--n)) no-repeat;image-rendering:pixelated;-webkit-mask:linear-gradient(90deg,transparent,#000 calc(8px*var(--s)) calc(100% - 8px*var(--s)),transparent);mask:linear-gradient(90deg,transparent,#000 calc(8px*var(--s)) calc(100% - 8px*var(--s)),transparent);animation:pip-play calc(var(--ms)*var(--n)) steps(var(--n)) infinite}
+@keyframes pip-play{to{background-position-y:calc(-40px*var(--s)*var(--n))}}
+.strip .says{position:absolute;left:0;right:0;top:calc(40px*var(--s));margin:0;height:3.2rem;display:grid;place-items:center;color:#2f3a24;font-size:.85rem;text-transform:uppercase}
+@media (prefers-reduced-motion:reduce){.pip-anim{animation:none}}
+
+/* the logo: P(Pip)CKET PIP / GAMES. Pip stands still (the strip below is the busy one); now and then he hops, waves (stepping aside so his arm clears the C)
+   or somersaults, once each in a 24-second loop. Every keyframe lists the same transforms, so the somersault turns all the way. */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.logo{margin:.15em 0 .5em;display:flex;flex-direction:column;align-items:center;gap:.22em;font-size:clamp(34px,7vw,72px);line-height:1}
+.logo .word{display:flex;align-items:flex-end;line-height:.8;letter-spacing:.077em;white-space:nowrap}
+.logo .games{display:flex;align-items:center;gap:.55em;font-size:.385em;letter-spacing:.55em;padding-left:.55em;color:var(--logo-games)}
+.logo .games i{width:3.75em;height:.25em;background:var(--logo-bar)}
+@media (max-width:480px){.logo .games i{width:2em}}
+.pip-o{width:.846em;height:1.02em;margin:0 .115em 0 .04em;overflow:visible;transform-origin:50% 58%;animation:pip-all 24s ease-in-out infinite}
+.pip-o .ps{fill:#b9c9a0}.pip-o .pl{fill:var(--pip-line)}.pip-o .pf{fill:var(--pip-face)}
+.pip-o .arm{opacity:0}
+.pip-o .arm-a{animation:arm-a 24s step-end infinite}
+.pip-o .arm-b{animation:arm-b 24s step-end infinite}
+@keyframes pip-all{0%,20%{transform:translateX(0) translateY(0) rotate(0deg) scaleY(1)}21.2%{transform:translateX(0) translateY(6%) rotate(0deg) scaleY(.88)}23%{transform:translateX(0) translateY(-38%) rotate(0deg) scaleY(1)}24.6%{transform:translateX(0) translateY(0) rotate(0deg) scaleY(1)}25.4%{transform:translateX(0) translateY(4%) rotate(0deg) scaleY(.92)}26.6%,49%{transform:translateX(0) translateY(0) rotate(0deg) scaleY(1)}49.8%,58.4%{transform:translateX(-15%) translateY(0) rotate(0deg) scaleY(1)}59.2%,80%{transform:translateX(0) translateY(0) rotate(0deg) scaleY(1)}81.2%{transform:translateX(0) translateY(6%) rotate(0deg) scaleY(.88)}82.5%{transform:translateX(0) translateY(-36%) rotate(-120deg) scaleY(1)}83.8%{transform:translateX(0) translateY(-30%) rotate(-240deg) scaleY(1)}85%{transform:translateX(0) translateY(0) rotate(-360deg) scaleY(1)}86%{transform:translateX(0) translateY(4%) rotate(-360deg) scaleY(.92)}87%,100%{transform:translateX(0) translateY(0) rotate(-360deg) scaleY(1)}}
+@keyframes arm-a{0%{opacity:0}50%{opacity:1}51.04%{opacity:0}52.08%{opacity:1}53.12%{opacity:0}54.17%{opacity:1}55.21%{opacity:0}56.25%{opacity:1}57.29%,100%{opacity:0}}
+@keyframes arm-b{0%{opacity:0}51.04%{opacity:1}52.08%{opacity:0}53.12%{opacity:1}54.17%{opacity:0}55.21%{opacity:1}56.25%{opacity:0}57.29%{opacity:1}58.33%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.pip-o,.pip-o .arm{animation:none}}
+.brand img{image-rendering:pixelated;border-radius:12px;box-shadow:var(--icon-edge)} /* --icon-edge: on the orange page a cream ring plus the case's underside; elsewhere just the underside */
+
+/* help and privacy pages: a game's own words in the site's look */
+.page-head{padding:36px 0 28px}
+.page-head h1{font-size:clamp(1.5rem,4.5vw,2.4rem);margin:0;line-height:1.15}
+.page-head .sub{margin:.5em 0 0;max-width:40em}
+.help{display:grid;grid-template-columns:270px minmax(0,1fr);gap:32px;align-items:start;margin-bottom:48px}
+.help.single{display:block}
+.help nav{position:sticky;top:16px;display:flex;flex-direction:column;gap:2px;background:var(--card);border-radius:22px;padding:14px}
+.help nav .label{font-family:"Silkscreen",monospace;letter-spacing:.08em;font-size:.75rem;padding:6px 12px 10px;color:var(--soft)}
+.help nav a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;font-weight:600;text-decoration:none}
+.help nav a b{margin-left:auto;font-size:.8rem}
+.help nav a:hover,.help nav a[aria-current]{background:var(--tile)}
+.help nav a.dim{opacity:.45}
+.help .i{width:18px;height:18px;flex:none}
+@media (max-width:760px){.help{grid-template-columns:minmax(0,1fr);gap:16px}.help nav{top:0;z-index:2;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;padding:8px;border-radius:16px}.help nav .label{display:none}.help nav a{white-space:nowrap}}
+.search{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:999px;padding:13px 20px;color:var(--soft)}
+.search:focus-within{box-shadow:0 0 0 3px var(--ink)}
+.search input{flex:1;min-width:0;border:0;background:none;font:inherit;color:var(--ink);outline:none}
+.help .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:14px 6px 22px;font-size:.92rem}
+.help .badge{background:var(--lcd);color:var(--lcd-ink);border-radius:10px;padding:5px 11px;font-family:"Silkscreen",monospace;letter-spacing:.06em;font-size:.7rem}
+.help section{background:none;padding:0;border:0;box-shadow:none;margin:0 0 32px}
+.help h2{display:flex;align-items:center;gap:10px;font-family:"Silkscreen",monospace;font-weight:400;letter-spacing:.08em;font-size:1rem;margin:0 0 12px 6px}
+.help .card{background:var(--card);border-radius:22px;overflow:hidden}
+.help details+details{border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent)}
+.help summary{list-style:none;cursor:pointer;padding:17px 24px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.help summary::-webkit-details-marker{display:none}
+.help summary::after{content:"+";font-family:"Silkscreen",monospace;font-size:1.2rem;line-height:1;flex:none}
+.help details[open] summary::after{content:"-"}
+.help summary:hover{background:var(--tile)}
+.help summary:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+.help details>:not(summary){margin:0;padding:0 24px 14px;color:var(--soft)}
+.help details>ul{padding-left:44px}
+.help details li{margin:.3em 0}
+.help .empty{padding:20px 24px}
+.help .more{margin:20px 6px}
+.doc{margin-bottom:48px}
+.doc h2{font-family:"Silkscreen",monospace;font-weight:400;letter-spacing:.08em;font-size:1rem;margin:2em 0 .6em}
+.doc .lede{background:var(--lcd);color:var(--lcd-ink);padding:14px 18px;border-radius:14px;max-width:none}
+.doc .small{color:var(--soft)}
+.doc table{font-size:.95rem}
+@media (max-width:620px){.doc table{display:block;overflow-x:auto}}
+
+/* the site's own font files (the games bundle the same ones): nothing is fetched from Google */
+@font-face{font-family:"Silkscreen";font-weight:400;font-display:swap;src:url(/fonts/silkscreen-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Silkscreen";font-weight:400;font-display:swap;src:url(/fonts/silkscreen-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Fredoka";font-weight:400 600;font-display:swap;src:url(/fonts/fredoka-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fredoka";font-weight:400 600;font-display:swap;src:url(/fonts/fredoka-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/* Google Play badge, press logos, the 404 */
+.play img{display:block;height:auto;margin:1em auto 0}
+.game .play img{margin:6px 0 0}
+.press-logos{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:12px}
+.press-logos a{display:block;background:var(--card);border:1px solid color-mix(in srgb,var(--ink) 15%,transparent);border-radius:16px;padding:20px}
+.press-logos a.dark{background:#2a2016}
+.press-logos img{display:block;max-width:100%;height:auto}
+.help-main{min-width:0}
+
+/* the secret: type "pip" on the homepage, or tap the logo Pip five times quickly, and he does a little celebration */
+.pip-o.party{animation:pip-party 2.4s ease-in-out}
+.pip-o.party .arm-a{animation:none;opacity:1}
+@keyframes pip-party{0%{transform:translateX(0) translateY(0) rotate(0deg) scaleY(1)}15%{transform:translateX(0) translateY(-40%) rotate(-360deg) scaleY(1)}30%{transform:translateX(0) translateY(0) rotate(-360deg) scaleY(.9)}45%{transform:translateX(0) translateY(-40%) rotate(0deg) scaleY(1)}60%{transform:translateX(0) translateY(0) rotate(0deg) scaleY(.9)}75%{transform:translateX(0) translateY(-40%) rotate(-360deg) scaleY(1)}90%,100%{transform:translateX(0) translateY(0) rotate(-360deg) scaleY(1)}}
+
+/* the games' icons keep an edge too: the same cream ring and underside as the menu icon (only the underside in dark mode) */
+.hero .icon,.feat-text .icon,.game img,.small-cards img{box-shadow:var(--icon-edge)}
+
+/* Ctrl+K search: a button in the menu bar and a dialog of results (pages and every help question) */
+.find-btn{font:inherit;font-weight:600;color:inherit;background:var(--card);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.find-btn kbd{font:.72rem/1 "Silkscreen",monospace;letter-spacing:.04em;opacity:.7}
+@media (max-width:620px){.find-btn kbd{display:none}}
+.find-btn:focus-visible,nav a:focus-visible,.button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+dialog.finder{width:min(640px,calc(100vw - 32px));margin:10vh auto auto;padding:14px;border:0;border-radius:22px;background:var(--card);color:var(--ink);box-shadow:0 20px 60px rgb(0 0 0 / .35)}
+dialog.finder::backdrop{background:rgb(0 0 0 / .5)}
+#find-q{width:100%;box-sizing:border-box;font:inherit;font-size:1.1rem;padding:12px 16px;border-radius:14px;border:2px solid color-mix(in srgb,var(--ink) 25%,transparent);background:var(--page,transparent);color:var(--ink);outline:none}
+#find-q:focus{border-color:var(--ink)}
+#find-list{list-style:none;margin:10px 0 0;padding:0;max-height:55vh;overflow:auto}
+#find-list [role=option]{display:flex;align-items:center;gap:12px;padding:8px 14px;border-radius:12px;cursor:pointer}
+#find-list [role=option] b{flex:1;min-width:0}
+.fi{width:34px;height:34px;flex:none;border-radius:9px;background:var(--lcd);color:var(--lcd-ink);display:grid;place-items:center;overflow:hidden}
+.fi img{width:34px;height:34px;image-rendering:pixelated}
+.fi svg{width:15px;height:21px;fill:currentColor}
+#find-list [role=option]>span:last-child{font-size:.85rem;color:var(--soft);white-space:nowrap}
+#find-list [aria-selected="true"],#find-list [role=option]:hover{background:var(--tile)}
+#find-list .none{padding:12px 14px;color:var(--soft)}
+.find-hint{margin:8px 4px 0;font-size:.8rem;color:var(--soft)}
+@media (max-width:620px){.find-hint{display:none}}
+footer .follow{margin:.2em 0 .6em;font-weight:600}
+/* games not on the site yet: wrapped presents that open with a clue (scripts/site.py presents()) */
+.present{display:block;background:var(--tile);border-radius:16px;padding:14px}
+.present summary{display:flex;gap:14px;align-items:center;cursor:pointer;list-style:none}
+.present summary::-webkit-details-marker{display:none}
+.present .box .wrap{fill:var(--c)}.present .box .ribbon{fill:#ffd23a}.present .box .line{fill:var(--ink)}
+.present .box{flex:none;transition:transform .2s}
+.present summary:hover .box,.present summary:focus-visible .box{animation:shake .5s}
+.present[open] .box{transform:translateY(-6px) rotate(-8deg)}
+.present[open] .tap{display:none}
+.present .clue{margin:10px 0 0;font-size:.9rem;line-height:1.5}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+@media (prefers-reduced-motion:reduce){.present summary:hover .box,.present summary:focus-visible .box{animation:none}}
